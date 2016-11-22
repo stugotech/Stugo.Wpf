@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Stugo.Wpf</id>
+    <version>$version$</version>
+    <authors>Stugo Ltd</authors>
+    <description>A collection of useful classes for WPF.</description>
+    <copyright>Copyright © Stugo Ltd 2016</copyright>
+  </metadata>
+  <files>
+    <file src="bin\net40\Stugo.Wpf.dll" target="lib\net40\" />
+    <file src="bin\net40\Stugo.Wpf.pdb" target="lib\net40\" />
+  </files>
+</package>
