@@ -5,7 +5,7 @@
     <version>$version$</version>
     <title>Stugo.Wpf.Install</title>
     <authors>Stugo Ltd</authors>
-    <description>desc</description>
+    <description>A collection of useful classes for WPF.</description>
     <copyright>Copyright (c) Stugo Ltd 2016</copyright>
   </metadata>
   <files>
