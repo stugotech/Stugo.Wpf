@@ -1,0 +1,184 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:behaviours="clr-namespace:Stugo.Wpf.Behaviours">
+
+    <PathGeometry x:Key="MinimisePath" FillRule="Nonzero" Figures="M0,6L0,9 9,9 9,6 0,6z" />
+    <PathGeometry x:Key="MaximisePath" FillRule="Nonzero" Figures="M0,0L0,9 9,9 9,0 0,0 0,3 8,3 8,8 1,8 1,3z" />
+    <PathGeometry x:Key="RestorePath" FillRule="Nonzero" Figures="M0,10L0,3 3,3 3,0 10,0 10,2 4,2 4,3 7,3 7,6 6,6 6,5 1,5 1,10z M1,10L7,10 7,7 10,7 10,2 9,2 9,6 6,6 6,9 1,9z" />
+    <PathGeometry x:Key="ClosePath" FillRule="Nonzero" Figures="M0,0L2,0 5,3 8,0 10,0 6,4 10,8 8,8 5,5 2,8 0,8 4,4 0,0z" />
+
+    
+    <Style x:Key="WindowButtonStyle" TargetType="Button">
+        <Style.Resources>
+            <Style TargetType="Path">
+                <Setter Property="Fill" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
+            </Style>
+        </Style.Resources>
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource WindowButtonBackgroundBrush}" />
+        <Setter Property="Width" Value="34" />
+        <Setter Property="Height" Value="34" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="False" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource WindowButtonHoverBackgroundBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource Accent2Brush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    
+    <Style x:Key="MinimiseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path Data="{StaticResource MinimisePath}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <Style x:Key="MaximiseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path x:Name="path" Data="{StaticResource MaximisePath}" />
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Value="Maximized" Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}">
+                <Setter Property="Content">
+                    <Setter.Value>
+                        <Path Data="{StaticResource RestorePath}" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource WindowButtonStyle}">
+        <Setter Property="Content">
+            <Setter.Value>
+                <Path Data="{StaticResource ClosePath}" />
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource WarningSemiBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource WarningContrastBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="ResizeThumbStyle" TargetType="Thumb">
+        <Setter Property="Height" Value="5" />
+        <Setter Property="Width" Value="5" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="IsTabStop" Value="False" />
+    </Style>
+
+
+    <Style x:Key="FancyWindowStyle" TargetType="Window">
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="BorderBrush" Value="{StaticResource WindowBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <!--<Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />-->
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="behaviours:FancyWindowBehaviour.IsResizeEnabled" Value="True" />
+        <Setter Property="behaviours:FancyWindowBehaviour.Enabled" Value="True" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Grid Background="{StaticResource ControlBackgroundBrush}">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Rectangle Width="200" Height="35" Margin="10,10,0,0" 
+                                           HorizontalAlignment="Left" VerticalAlignment="Top"
+                                           Fill="{StaticResource BrandBrush}" />
+                                    
+                                <Thumb x:Name="PART_HeaderThumb" VerticalAlignment="Top" Height="34" Opacity="0" />
+
+                                <Thumb x:Name="PART_ResizeLeft" Style="{StaticResource ResizeThumbStyle}"
+                                       HorizontalAlignment="Left" Height="auto"
+                                       Cursor="SizeWE" />
+
+                                <Thumb x:Name="PART_ResizeTop" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Top" Width="auto"
+                                       Cursor="SizeNS" />
+
+                                <Thumb x:Name="PART_ResizeRight" Style="{StaticResource ResizeThumbStyle}"
+                                       HorizontalAlignment="Right" Height="auto"
+                                       Cursor="SizeWE" />
+
+                                <Thumb x:Name="PART_ResizeBottom" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Bottom" Width="auto"
+                                       Cursor="SizeNS" />
+
+                                <Thumb x:Name="PART_ResizeTopLeft" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Top" HorizontalAlignment="Left"
+                                       Cursor="SizeNWSE" />
+
+                                <Thumb x:Name="PART_ResizeTopRight" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Top" HorizontalAlignment="Right"
+                                       Cursor="SizeNESW" />
+
+                                <Thumb x:Name="PART_ResizeBottomRight" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                       Cursor="SizeNWSE" />
+
+                                <Thumb x:Name="PART_ResizeBottomLeft" Style="{StaticResource ResizeThumbStyle}"
+                                       VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                                       Cursor="SizeNESW" />
+
+                                <AdornerDecorator>
+                                    <ContentPresenter />
+                                </AdornerDecorator>
+
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                    <Button x:Name="PART_MinimiseButton" Style="{StaticResource MinimiseButtonStyle}" />
+                                    <Button x:Name="PART_MaximiseButton" Style="{StaticResource MaximiseButtonStyle}" />
+                                    <Button x:Name="PART_CloseButton" Style="{StaticResource CloseButtonStyle}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Value="False" Binding="{Binding (behaviours:FancyWindowBehaviour.IsResizeEnabled), RelativeSource={RelativeSource Self}}">
+                            <Setter TargetName="PART_MaximiseButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeLeft" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeTopLeft" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeTop" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeTopRight" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeRight" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeBottomRight" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeBottom" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="PART_ResizeBottomLeft" Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

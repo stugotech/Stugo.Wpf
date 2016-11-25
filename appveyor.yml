@@ -1,6 +1,6 @@
 environment:
   PROJECT_NAME: Stugo.Wpf
-  VERSION_NUMBER: 0.0.0
+  VERSION_NUMBER: 1.0.0
   VERSION_PRE_TAG:
 
 version: $(VERSION_NUMBER).{build}
@@ -18,10 +18,13 @@ build_script:
   - cmd: |
       msbuild /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=net40 /m
       mkdir %PROJECT_NAME%\bin\nupkg
+      mkdir %PROJECT_NAME%.Install\bin\nupkg
       nuget pack %PROJECT_NAME%\%PROJECT_NAME%.nuspec -OutputDirectory %PROJECT_NAME%\bin\nupkg\ -Version "%FULL_VERSION%"
+      nuget pack %PROJECT_NAME%.Install\%PROJECT_NAME%.Install.nuspec -OutputDirectory %PROJECT_NAME%.Install\bin\nupkg\ -Version "%FULL_VERSION%"
 
 artifacts:
   - path: $(PROJECT_NAME)\bin\nupkg\*.nupkg
+  - path: $(PROJECT_NAME).Install\bin\nupkg\*.nupkg
 
 assembly_info:
   patch: true

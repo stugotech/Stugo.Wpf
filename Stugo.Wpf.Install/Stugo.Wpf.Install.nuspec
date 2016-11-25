@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Stugo.Wpf.Install</id>
+    <version>$version$</version>
+    <title>Stugo.Wpf.Install</title>
+    <authors>Stugo Ltd</authors>
+    <description>desc</description>
+    <copyright>Copyright (c) Stugo Ltd 2016</copyright>
+  </metadata>
+  <files>
+    <file src="bin\net40\Stugo.Wpf.wixlib" target="build\Stugo.Wpf.net40.wixlib" />
+    <file src="Stugo.Wpf.Install.targets" target="build\" />
+  </files>
+</package>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <ComponentGroup Id="Stugo.Wpf" Directory="INSTALLDIR">
+      <Component Id="Stugo.Wpf.dll">
+        <File Id="Stugo.Wpf.dll" Source="..\Stugo.Wpf\bin\$(var.Configuration)\Stugo.Wpf.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

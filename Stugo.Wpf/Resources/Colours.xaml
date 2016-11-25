@@ -1,0 +1,117 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!-- ACCENTS -->
+    <Color x:Key="Accent1Color">#ff001e4e</Color>
+    <Color x:Key="Accent2Color">#ff006ac1</Color>
+    <Color x:Key="Accent3Color">#ff56c5ff</Color>
+    <Color x:Key="Accent4Color">#ff2c4566</Color>
+
+    <Color x:Key="Gray1Color">#ffdddddd</Color>
+    <Color x:Key="Gray2Color">#ffaaaaaa</Color>
+    <Color x:Key="Gray3Color">#fff0f0f0</Color>
+
+    <Color x:Key="GrayTextColor">#ff999999</Color>
+
+    <Color x:Key="ForegroundColor">#ff333333</Color>
+    <Color x:Key="LessImportantForegroundColor">#ff999999</Color>
+    <Color x:Key="BackgroundColor">#ffffffff</Color>
+
+    <SolidColorBrush x:Key="Accent1Brush" Color="{StaticResource Accent1Color}" />
+    <SolidColorBrush x:Key="Accent2Brush" Color="{StaticResource Accent2Color}" />
+    <SolidColorBrush x:Key="Accent3Brush" Color="{StaticResource Accent3Color}" />
+    <SolidColorBrush x:Key="Accent4Brush" Color="{StaticResource Accent4Color}" />
+
+    <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource Accent2Color}" />
+    <SolidColorBrush x:Key="Semi25HighlightBrush" Color="#40006ac1" />
+    <SolidColorBrush x:Key="Semi50HighlightBrush" Color="#80006ac1" />
+    <SolidColorBrush x:Key="Semi80HighlightBrush" Color="#cc006ac1" />
+
+    <SolidColorBrush x:Key="HighlightContrastBrush" Color="#ffffffff" />
+
+    <SolidColorBrush x:Key="WarningBrush" Color="#ffff2e12" />
+    <SolidColorBrush x:Key="WarningSemiBrush" Color="#99ff2e12" />
+    <SolidColorBrush x:Key="WarningContrastBrush" Color="#ffffffff" />
+
+    <SolidColorBrush x:Key="Gray1Brush" Color="{StaticResource Gray1Color}" />
+    <SolidColorBrush x:Key="Gray2Brush" Color="{StaticResource Gray2Color}" />
+    <SolidColorBrush x:Key="Gray3Brush" Color="{StaticResource Gray3Color}" />
+
+    <SolidColorBrush x:Key="GrayTextBrush" Color="{StaticResource GrayTextColor}" />
+
+
+    <!-- WINDOWS -->
+    <SolidColorBrush x:Key="WindowBorderBrush" Color="{StaticResource Gray1Color}" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFEDEDED" />
+    <SolidColorBrush x:Key="BrandBrush" Color="Tranparent" />
+
+    <SolidColorBrush x:Key="WindowButtonBackgroundBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="WindowButtonHoverBackgroundBrush" Color="#99ffffff" />
+
+    <SolidColorBrush x:Key="PopupOverlayBrush" Color="#ee000000" />
+
+
+    <!-- CONTROLS -->
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#FFEDEDED" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}" />
+    <SolidColorBrush x:Key="MinorForegroundBrush" Color="{StaticResource LessImportantForegroundColor}" />
+    <SolidColorBrush x:Key="ControlBorderBrush" Color="{StaticResource Gray1Color}" />
+    <SolidColorBrush x:Key="ControlFocusBorderBrush" Color="{StaticResource ForegroundColor}" />
+    <SolidColorBrush x:Key="ControlHoverBorderBrush" Color="{StaticResource Gray2Color}" />
+    <SolidColorBrush x:Key="ControlEmptyBackgroundBrush" Color="#ffdddddd" />
+
+    <SolidColorBrush x:Key="InvertedForegroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="InvertedMinorForegroundBrush" Color="#99FFFFFF" />
+
+    <SolidColorBrush x:Key="HoverBackgroundBrush" Color="#fff9f9f9" />
+    <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#55006ac1" />
+
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{StaticResource Gray1Color}" />
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="{StaticResource Gray2Color}" />
+
+    <DropShadowEffect x:Key="DropShadowBrush" Direction="330" Opacity="0.3" ShadowDepth="0" BlurRadius="6"/>
+
+    <VisualBrush x:Key="NavigationButtonBackgroundBrush" TileMode="Tile" 
+                 ViewportUnits="Absolute" Viewport="0,0,6,6" 
+                 ViewboxUnits="Absolute" Viewbox="0,0,6,6">
+        <VisualBrush.Visual>
+            <Canvas>
+                <Path Stroke="{StaticResource Gray1Brush}" Data="M -1 1 l 2 -2" StrokeThickness="1" />
+                <Path Stroke="{StaticResource Gray1Brush}" Data="M 0 6 l 6 -6" StrokeThickness="1" />
+                <Path Stroke="{StaticResource Gray1Brush}" Data="M 5 7 l 2 -2" StrokeThickness="1" />
+            </Canvas>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="MenuBackgroundBrush" TileMode="Tile" 
+                 ViewportUnits="Absolute" Viewport="0,0,6,6" 
+                 ViewboxUnits="Absolute" Viewbox="0,0,6,6">
+        <VisualBrush.Visual>
+            <Canvas>
+                <Rectangle Fill="{StaticResource BackgroundBrush}" Width="6" Height="6" />
+                <Path Stroke="{StaticResource Gray1Brush}" Data="M -1 1 l 2 -2" StrokeThickness="1" />
+                <Path Stroke="{StaticResource Gray1Brush}" Data="M 0 6 l 6 -6" StrokeThickness="1" />
+                <Path Stroke="{DynamicResource Gray1Brush}" Data="M 5 7 l 2 -2" StrokeThickness="1" />
+            </Canvas>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+
+    <SolidColorBrush x:Key="ScrollBarBackgroundBrush" Color="#fff0f0f0" />
+
+    <SolidColorBrush x:Key="ScrollBarArrowBrush" Color="#ff606060" />
+    <SolidColorBrush x:Key="ScrollBarArrowHoverBrush" Color="#ff333333" />
+
+    <SolidColorBrush x:Key="ScrollBarArrowBackgroundBrush" Color="#fff0f0f0" />
+    <SolidColorBrush x:Key="ScrollBarArrowHoverBackgroundBrush" Color="#ffdadada" />
+
+    <SolidColorBrush x:Key="ScrollBarArrowPressedBrush" Color="#fff8f8f8" />
+    <SolidColorBrush x:Key="ScrollBarArrowPressedBackgroundBrush" Color="#ff606060" />
+
+    <SolidColorBrush x:Key="ScrollBarThumbBrush" Color="#ffcdcdcd" />
+    <SolidColorBrush x:Key="ScrollBarThumbHoverBrush" Color="#ffa6a6a6" />
+    <SolidColorBrush x:Key="ScrollBarThumbPressedBrush" Color="#ff606060" />
+
+</ResourceDictionary>

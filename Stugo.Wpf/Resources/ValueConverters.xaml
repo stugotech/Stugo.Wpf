@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vc="clr-namespace:Stugo.Wpf.ValueConverters">
+
+    <vc:BooleanConverter x:Key="BooleanConverter" />
+    <vc:EnumToTextConverter x:Key="EnumToTextConverter"/>
+    <vc:EqualConverter x:Key="EqualConverter"/>
+    <vc:IsNullConverter x:Key="IsNullConverter"/>
+    <vc:LocalisedStringConverter x:Key="LocalisedStringConverter"/>
+    <vc:NotBooleanConverter x:Key="NotBooleanConverter"/>
+    <vc:PluralLocalisedStringConverter x:Key="PluralLocalisedStringConverter"/>
+    <vc:TrimStringConverter x:Key="TrimStringConverter"/>
+    <vc:VisibilityConverter x:Key="VisibilityConverter"/>
+</ResourceDictionary>
