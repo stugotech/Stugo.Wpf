@@ -99,7 +99,7 @@
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="BorderBrush" Value="{StaticResource WindowBorderBrush}" />
         <Setter Property="BorderThickness" Value="1"/>
-        <!--<Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />-->
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -115,6 +115,7 @@
                                 Background="{TemplateBinding Background}">
                             <Grid>
                                 <Rectangle Width="200" Height="35" Margin="10,10,0,0" 
+                                           Panel.ZIndex="2147483647"
                                            HorizontalAlignment="Left" VerticalAlignment="Top"
                                            Fill="{StaticResource BrandBrush}" />
                                     
