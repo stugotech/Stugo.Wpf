@@ -114,12 +114,15 @@
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Background="{TemplateBinding Background}">
                             <Grid>
-                                <Rectangle Width="200" Height="35" Margin="10,10,0,0" 
-                                           Panel.ZIndex="2147483647"
+                                <AdornerDecorator>
+                                    <ContentPresenter />
+                                </AdornerDecorator>
+                                
+                                <Thumb x:Name="PART_HeaderThumb" VerticalAlignment="Top" Height="34" Opacity="0" />
+                                
+                                <Rectangle Width="200" Height="35" Margin="10,10,0,0"
                                            HorizontalAlignment="Left" VerticalAlignment="Top"
                                            Fill="{StaticResource BrandBrush}" />
-                                    
-                                <Thumb x:Name="PART_HeaderThumb" VerticalAlignment="Top" Height="34" Opacity="0" />
 
                                 <Thumb x:Name="PART_ResizeLeft" Style="{StaticResource ResizeThumbStyle}"
                                        HorizontalAlignment="Left" Height="auto"
@@ -153,11 +156,8 @@
                                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
                                        Cursor="SizeNESW" />
 
-                                <AdornerDecorator>
-                                    <ContentPresenter />
-                                </AdornerDecorator>
-
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal" Panel.ZIndex="2147483647"
+                                            VerticalAlignment="Top" HorizontalAlignment="Right">
                                     <Button x:Name="PART_MinimiseButton" Style="{StaticResource MinimiseButtonStyle}" />
                                     <Button x:Name="PART_MaximiseButton" Style="{StaticResource MaximiseButtonStyle}" />
                                     <Button x:Name="PART_CloseButton" Style="{StaticResource CloseButtonStyle}" />
