@@ -108,7 +108,7 @@ namespace Stugo.Wpf.Behaviours
         {
             var window = target as Window;
 
-            if (window?.IsLoaded == true)
+            if (window != null && window.IsLoaded == true)
                 EnableResizeBehaviour(window, GetIsResizeEnabled(window));
         }
 
@@ -121,7 +121,7 @@ namespace Stugo.Wpf.Behaviours
 
             foreach (var type in types)
             {
-                var thumb = template.FindName($"PART_Resize{type}", window) as Thumb;
+                var thumb = template.FindName(string.Format("PART_Resize{0}", type), window) as Thumb;
                 if (thumb != null)
                     WindowResizeBehaviour.SetType(thumb, enable ? type : ResizeType.None);
             }

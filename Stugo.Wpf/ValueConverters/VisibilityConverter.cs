@@ -22,7 +22,7 @@ namespace Stugo.Wpf.ValueConverters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var invert = binding?.Invert ?? (parameter as bool?) ?? false;
+            var invert = binding != null ? binding.Invert : ((parameter as bool?) ?? false);
             return (value.IsTruthy() == !invert).ToVisibility();
         }
 

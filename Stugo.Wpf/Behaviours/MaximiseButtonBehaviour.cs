@@ -29,7 +29,7 @@ namespace Stugo.Wpf.Behaviours
         private static void EnabledChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
             var button = target as Button;
-            var window = button?.GetWindow();
+            var window = button != null ? button.GetWindow() : null;
 
             if (window != null)
             {

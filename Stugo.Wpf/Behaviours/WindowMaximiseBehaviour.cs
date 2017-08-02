@@ -41,11 +41,15 @@ namespace Stugo.Wpf.Behaviours
             {
                 var windowHandle = new WindowInteropHelper(window).Handle;
                 var hwndSource = HwndSource.FromHwnd(windowHandle);
-                hwndSource?.RemoveHook(WindowProcDelegate);
+
+                if (hwndSource != null) 
+                {
+                    hwndSource.RemoveHook(WindowProcDelegate);
                 
 
-                if (GetEnabled(target))
-                    hwndSource?.AddHook(WindowProcDelegate);
+                    if (GetEnabled(target))
+                        hwndSource.AddHook(WindowProcDelegate);
+                }
             }
         }
 

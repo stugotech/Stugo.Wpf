@@ -120,26 +120,26 @@ namespace Stugo.Wpf
         /// <summary>
         /// Get the bounds of the screen in global coordinate space.
         /// </summary>
-        public Rect Bounds { get; }
+        public Rect Bounds { get; private set; }
 
         /// <summary>
         /// Get the working area of the screen in global coordinate space.
         /// </summary>
-        public Rect WorkingArea { get; }
+        public Rect WorkingArea { get; private set; }
 
         /// <summary>
         /// Get the working area of the screen in the screen coordinate space.
         /// </summary>
-        public Rect ScreenRelativeWorkingArea { get; }
+        public Rect ScreenRelativeWorkingArea { get; private set; }
 
         /// <summary>
         /// Get a value indicating if this is the primary screen.
         /// </summary>
-        public bool Primary { get; }
+        public bool Primary { get; private set; }
 
         /// <summary>
         /// Get the name of the monitor device.
         /// </summary>
-        public string DeviceName { get; }
+        public string DeviceName { get; private set; }
     }
 }

@@ -44,7 +44,7 @@ namespace Stugo.Wpf.Behaviours
         private static void OnDragDelta(object sender, DragDeltaEventArgs e)
         {
             var thumb = sender as Thumb;
-            var window = thumb?.GetWindow();
+            var window = thumb != null ? thumb.GetWindow() : null;
 
             if (window != null)
             {

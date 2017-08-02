@@ -48,14 +48,21 @@ namespace Stugo.Wpf.Behaviours
 
         private static void OnPreviewMouseMove(object sender, MouseEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                (sender as UIElement)?.GetWindow()?.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed) 
+            {
+                var element = sender as UIElement;
+                var window = element != null ? element.GetWindow() : null;
+
+                if (window != null)
+                    window.DragMove();
+            }
         }
 
 
         private static void OnDragDelta(object sender, DragDeltaEventArgs e)
         {
-            var window = (sender as UIElement)?.GetWindow();
+            var element = sender as UIElement;
+            var window = element != null ? element.GetWindow() : null;
 
             if (window != null && window.WindowState == WindowState.Maximized)
             {
@@ -72,7 +79,8 @@ namespace Stugo.Wpf.Behaviours
 
         private static void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var window = (sender as UIElement)?.GetWindow();
+            var element = sender as UIElement;
+            var window = element != null ? element.GetWindow() : null;
 
             if (window != null && e.ClickCount == 2)
             {

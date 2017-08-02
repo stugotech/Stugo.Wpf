@@ -19,7 +19,7 @@ namespace Stugo.Wpf.Interop
         public int right;
         public int bottom;
 
-        public int width => right - left;
-        public int height => bottom - top;
+        public int width { get { return right - left; }}
+        public int height { get { return bottom - top; } }
     }
 }

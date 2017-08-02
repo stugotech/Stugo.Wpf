@@ -26,7 +26,7 @@ namespace Stugo.Wpf.ValueConverters
             if (value != null)
             {
                 var key = value.ToString();
-                var n = System.Convert.ToInt32(binding?.Plural ?? parameter);
+                var n = System.Convert.ToInt32((binding != null ? binding.Plural : null) ?? parameter);
                 value = LocalisationManager.Current.GetPlural(key, n) ?? key;
             }
 

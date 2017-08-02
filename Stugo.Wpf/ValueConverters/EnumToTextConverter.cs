@@ -15,7 +15,7 @@ namespace Stugo.Wpf.ValueConverters
 
                 if (type.IsEnum)
                 {
-                    var name = $"{parameter ?? type.Name}_{Enum.GetName(type, value)}";
+                    var name = string.Format("{0}_{1}", parameter ?? type.Name, Enum.GetName(type, value));
                     value = LocalisationManager.Current.GetString(name) ?? value;
                 }
             }

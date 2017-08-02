@@ -11,7 +11,7 @@ namespace Stugo.Wpf.Localisation
     {
         private static readonly Regex invalidCharRegex = new Regex("(^[^A-Za-z_]|[^A-Za-z0-9_])+", RegexOptions.Compiled);
 
-        public ICollection<ResourceManager> Resources { get; }
+        public ICollection<ResourceManager> Resources { get; private set; }
 
 
         public ResourcesLocalisationManager(params Type[] resourceTypes)
@@ -48,7 +48,7 @@ namespace Stugo.Wpf.Localisation
 
             for (var i = start; i >= 0 && value == null; --i)
             {
-                value = GetString($"{baseKey}_{i}");
+                value = GetString(string.Format("{0}_{1}", baseKey, i));
             }
 
             return string.Format(value ?? GetString(baseKey), n);

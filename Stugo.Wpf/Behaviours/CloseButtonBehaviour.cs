@@ -42,7 +42,10 @@ namespace Stugo.Wpf.Behaviours
         private static void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             var button = (Button)sender;
-            button.GetWindow()?.Close();
+            var window = button.GetWindow();
+
+            if (window != null)
+                window.Close();
         }
     }
 }
